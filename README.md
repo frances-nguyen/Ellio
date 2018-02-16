@@ -9,4 +9,6 @@ While developing this game, I learned how to implement the game loop through mul
 is a cycle that processes user input, update the game logic, render images to the screen, and handle 
 collisions. To avoid potential lags, I enforced frame-rate independent movement so that movement speed does not change with 
 framerate but instead depends on time. To do this, I calculated the amount of time spent per frame and scales
-the velocity of the objects with this value so that movement speed is affected by change in time. 
+the velocity of the objects with this value so that movement speed is affected by change in time. Furthermore, to prevent
+FPS from dropping and avoiding frequent garbage collecting, I reused objects and avoid creating new objects inside the game loop. Lastly, I learned how to use Extensible Markup Language (XML) to control what GUI elements should be present in the game's acitivity and how they 
+should behave. 
