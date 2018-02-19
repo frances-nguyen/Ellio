@@ -1,19 +1,17 @@
 package com.jenho.game.model;
 
 import android.graphics.Rect;
-
 import com.jenho.framework.util.RandomNumberGenerator;
 
 public class Block {
-    private float x,y;
+    private float x, y;
     private int width, height;
     private Rect rect;
     private boolean visible;
-
     private static final int UPPER_Y = 275;
     private static final int LOWER_Y = 355;
 
-    public Block(float x, float y, int width, int height, Rect rect, boolean visible) {
+    public Block(float x, float y, int width, int height) {
         this.x = x;
         this.y = y;
         this.width = width;
@@ -22,22 +20,22 @@ public class Block {
         visible = false;
     }
 
-    public void update(float delta, float velX){
+    public void update(float delta, float velX) {
         x += velX * delta;
         updateRect();
-        if(x <= -50){
+        if (x <= -50) {
             reset();
         }
     }
 
-    public void updateRect(){
+    public void updateRect() {
         rect.set((int) x, (int) y, (int) x + width, (int) y + height);
     }
 
-    public void reset(){
+    public void reset() {
         visible = true;
         // 1 in 3 chance of becoming an Upper Block
-        if(RandomNumberGenerator.getRandInt(3) == 0){
+        if (RandomNumberGenerator.getRandInt(3) == 0) {
             y = UPPER_Y;
         } else {
             y = LOWER_Y;
@@ -46,7 +44,7 @@ public class Block {
         updateRect();
     }
 
-    public void onCollide(Player p){
+    public void onCollide(Player p) {
         visible = false;
         p.pushBack(30);
     }
@@ -59,11 +57,11 @@ public class Block {
         return y;
     }
 
-    public Rect getRect() {
-        return rect;
-    }
-
     public boolean isVisible() {
         return visible;
+    }
+
+    public Rect getRect() {
+        return rect;
     }
 }

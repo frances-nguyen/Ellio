@@ -3,7 +3,7 @@ package com.jenho.game.model;
 import com.jenho.framework.util.RandomNumberGenerator;
 
 public class Cloud {
-    private float x,y;
+    private float x, y;
     private static final int VEL_X = -15;
 
     public Cloud(float x, float y) {
@@ -11,10 +11,10 @@ public class Cloud {
         this.y = y;
     }
 
-    public void update(float delta){
+    public void update(float delta) {
         x += VEL_X * delta;
-        if(x <= -200){
-            //Reset to the right
+        if (x <= -200) {
+            // Reset to the right
             x += 1000;
             y = RandomNumberGenerator.getRandIntBetween(20, 100);
         }
