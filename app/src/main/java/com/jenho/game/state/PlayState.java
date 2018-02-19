@@ -43,7 +43,7 @@ public class PlayState extends State {
     @Override
     public void update(float delta) {
         if (!player.isAlive()) {
-            //setCurrentState(new GameOverState(playerScore / 100));
+            setCurrentState(new GameOverState(playerScore / 100));
         }
         playerScore += 1;
         if (playerScore % 500 == 0 && blockSpeed > -280) {
